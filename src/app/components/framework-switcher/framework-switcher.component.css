@@ -1,0 +1,64 @@
+.framework-switcher {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.framework-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.framework-link.active {
+  color: var(--text-main);
+  cursor: default;
+}
+
+.framework-link.inactive:hover {
+  color: var(--text-main);
+  transform: translateY(-1px);
+}
+
+.framework-icon {
+  font-size: 1.2rem;
+}
+
+.framework-icon.react {
+  color: #61dafb;
+}
+
+.framework-icon.angular {
+  color: #dd0031;
+}
+
+.framework-divider {
+  color: var(--card-border);
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+  .framework-switcher {
+    top: 15px;
+    left: 15px;
+  }
+  
+  .framework-link span {
+    display: none;
+  }
+}
