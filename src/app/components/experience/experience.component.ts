@@ -1,14 +1,15 @@
-import { Component, OnInit, OnDestroy, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
+import { RevealDirective } from '../../directives/reveal.directive';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RevealDirective],
   template: `
-    <section id="experience" class="experience-section" #experienceSection>
+    <section id="experience" class="experience-section">
       <div class="container">
         <h2 class="section-title text-gradient">{{ data?.title }}</h2>
         
@@ -38,12 +39,9 @@ import { Subscription } from 'rxjs';
   `,
   styleUrls: ['./experience.component.css']
 })
-export class ExperienceComponent implements OnInit, OnDestroy, AfterViewInit {
-  @ViewChild('experienceSection') experienceSection!: ElementRef;
-  
+export class ExperienceComponent implements OnInit, OnDestroy {
   public data: any;
   private sub = new Subscription();
-  private observer!: IntersectionObserver;
 
   constructor(private langService: LanguageService) {}
 
@@ -53,23 +51,7 @@ export class ExperienceComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    setTimeout(() => {
-      const elements = this.experienceSection.nativeElement.querySelectorAll('.reveal');
-      elements.forEach((el: any) => this.observer.observe(el));
-    }, 100);
-  }
-
   ngOnDestroy() {
     this.sub.unsubscribe();
-    if (this.observer) this.observer.disconnect();
   }
 }

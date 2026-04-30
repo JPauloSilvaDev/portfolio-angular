@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap');
 
 :root {
-  --bg-color: #0f172a;
-  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  --bg-color: #2D080A;
+  --bg-gradient: linear-gradient(135deg, #2D080A 0%, #5E1914 100%);
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
-  --accent-1: #3b82f6;
-  --accent-2: #8b5cf6;
+  --accent-1: #991b1b;
+  --accent-2: #722f37;
   --accent-gradient: linear-gradient(to right, var(--accent-1), var(--accent-2));
-  --card-bg: rgba(30, 41, 59, 0.7);
+  --card-bg: rgba(45, 8, 10, 0.8);
   --card-border: rgba(255, 255, 255, 0.1);
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Outfit', sans-serif;
@@ -94,3 +94,20 @@ a:hover {
 section {
   padding: 6rem 0;
 }
+
+/* Scroll Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }

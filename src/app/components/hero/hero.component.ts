@@ -1,21 +1,22 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
+import { RevealDirective } from '../../directives/reveal.directive';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RevealDirective],
   template: `
     <section class="hero-section">
       <div class="container hero-container">
-        <div class="hero-content fade-in-up">
-          <h2 class="greeting delay-1">{{ data?.greeting }}</h2>
-          <h1 class="name text-gradient delay-2">{{ data?.name }}</h1>
-          <h3 class="title delay-3">{{ data?.title }}</h3>
+        <div class="hero-content">
+          <h2 class="greeting reveal delay-1">{{ data?.greeting }}</h2>
+          <h1 class="name text-gradient reveal delay-2">{{ data?.name }}</h1>
+          <h3 class="title reveal delay-3">{{ data?.title }}</h3>
           
-          <div class="social-links delay-4">
+          <div class="social-links reveal delay-4">
             <a [href]="data?.github" target="_blank" rel="noopener noreferrer" class="social-icon">
               <i class="fab fa-github"></i>
             </a>

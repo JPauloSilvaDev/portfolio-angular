@@ -1,14 +1,15 @@
-import { Component, OnInit, OnDestroy, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
+import { RevealDirective } from '../../directives/reveal.directive';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RevealDirective],
   template: `
-    <section id="about" class="about-section" #aboutSection>
+    <section id="about" class="about-section">
       <div class="container">
         <h2 class="section-title text-gradient reveal">{{ data?.nav?.about }}</h2>
         
@@ -25,13 +26,10 @@ import { Subscription } from 'rxjs';
   `,
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit, OnDestroy, AfterViewInit {
-  @ViewChild('aboutSection') aboutSection!: ElementRef;
-  
+export class AboutComponent implements OnInit, OnDestroy {
   public data: any;
   public personalInfo: any;
   private sub = new Subscription();
-  private observer!: IntersectionObserver;
 
   constructor(private langService: LanguageService) {}
 
@@ -43,23 +41,7 @@ export class AboutComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    const elements = this.aboutSection.nativeElement.querySelectorAll('.reveal');
-    elements.forEach((el: any) => this.observer.observe(el));
-  }
-
   ngOnDestroy() {
     this.sub.unsubscribe();
-    if (this.observer) {
-      this.observer.disconnect();
-    }
   }
 }
