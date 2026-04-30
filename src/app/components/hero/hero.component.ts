@@ -27,6 +27,12 @@ import { Subscription } from 'rxjs';
               <i class="fas fa-envelope"></i>
             </a>
           </div>
+
+          <div class="cta-container reveal delay-4">
+            <a [href]="data?.resumeUrl" target="_blank" class="btn btn-primary resume-btn">
+              <i class="fas fa-download"></i> {{ data?.resumeLabel }}
+            </a>
+          </div>
         </div>
       </div>
     </section>

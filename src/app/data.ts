@@ -15,7 +15,9 @@ export const portfolioData: any = {
       linkedin: "https://linkedin.com/in/jpaulosilvadev",
       github: "https://github.com/JPauloSilvaDev",
       profile: "Desenvolvedor Fullstack com foco em excelência técnica e otimização de performance. Experiência comprovada na redução do tempo de resposta de APIs e na automação de deploys em Kubernetes. Proficiente em Blazor e Angular no front-end, e em Entity Framework/Dapper para persistência eficiente de dados. Reconhecido pela capacidade de resolver problemas complexos com agilidade e qualidade.",
-      greeting: "Olá, Eu sou"
+      greeting: "Olá, Eu sou",
+      resumeUrl: "assets/cv-joao-paulo-pt.pdf",
+      resumeLabel: "Baixar Currículo"
     },
     skills: {
       title: "Habilidades & Tecnologias",
@@ -105,7 +107,9 @@ export const portfolioData: any = {
       linkedin: "https://linkedin.com/in/jpaulosilvadev",
       github: "https://github.com/JPauloSilvaDev",
       profile: "Fullstack Developer with a focus on technical excellence and performance optimization. Proven experience in reducing API response times and automating deployments in Kubernetes. Proficient in Blazor and Angular on the front-end, and Entity Framework/Dapper for efficient data persistence. Recognized for the ability to solve complex problems with agility and quality.",
-      greeting: "Hello, I'm"
+      greeting: "Hello, I'm",
+      resumeUrl: "assets/cv-joao-paulo-en.pdf",
+      resumeLabel: "Download Resume"
     },
     skills: {
       title: "Skills & Technologies",
